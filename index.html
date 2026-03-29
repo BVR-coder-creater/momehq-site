@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MomeHQ — The Mental Load, Finally Shared</title>
+<meta name="description" content="MomeHQ is the first co-parenting app built for both of you. Stop keeping score. Start sharing the load.">
+<meta property="og:title" content="MomeHQ — The Mental Load, Finally Shared">
+<meta property="og:description" content="The first co-parenting app that makes the invisible visible. Join the waitlist.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://momehq.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF7F2;
+    --warm-white: #FFFDFB;
+    --blush: #E8C4B8;
+    --blush-light: #F5E6DF;
+    --rose: #C4756A;
+    --rose-deep: #A85A50;
+    --charcoal: #2C2522;
+    --charcoal-soft: #4A3F3A;
+    --sage: #8BA88E;
+    --sage-light: #D4E4D6;
+    --gold: #D4A853;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--charcoal);
+    background: var(--cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(251, 247, 242, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(200, 180, 170, 0.15);
+    transition: all 0.4s ease;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--rose); }
+  .nav-cta {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.6rem;
+    background: var(--charcoal);
+    color: var(--cream);
+    border: none; border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .nav-cta:hover { background: var(--rose-deep); transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    background: var(--cream);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(232, 196, 184, 0.25), transparent),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(212, 228, 214, 0.2), transparent);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    background: var(--blush-light);
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    animation: fadeInUp 0.8s ease 0.15s both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+  .hero-sub {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--charcoal-soft);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+  .hero-cta-group {
+    display: flex; gap: 1rem;
+    justify-content: center; align-items: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.45s both;
+  }
+  .btn-primary {
+    font-family: var(--font-body);
+    font-size: 1rem; font-weight: 600;
+    padding: 1rem 2.2rem;
+    background: var(--rose);
+    color: white;
+    border: none; border-radius: 100px;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(196, 117, 106, 0.3);
+  }
+  .btn-primary:hover { background: var(--rose-deep); transform: translateY(-2px); box-shadow: 0 6px 30px rgba(196, 117, 106, 0.4); }
+  .btn-ghost {
+    font-family: var(--font-body);
+    font-size: 1rem; font-weight: 500;
+    padding: 1rem 2.2rem;
+    background: transparent;
+    color: var(--charcoal);
+    border: 1.5px solid rgba(44, 37, 34, 0.2);
+    border-radius: 100px;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover { border-color: var(--rose); color: var(--rose); }
+
+  /* ─── VIDEO SECTION ─── */
+  .video-section {
+    padding: 2rem 2rem 6rem;
+    display: flex; justify-content: center;
+    position: relative;
+  }
+  .video-wrapper {
+    width: 100%; max-width: 400px;
+    aspect-ratio: 9/16;
+    max-height: 80vh;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--charcoal);
+    position: relative;
+    box-shadow:
+      0 20px 60px rgba(44, 37, 34, 0.15),
+      0 4px 20px rgba(44, 37, 34, 0.08);
+    animation: fadeInUp 0.8s ease 0.6s both;
+  }
+  .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* ─── STATS / THE PROBLEM ─── */
+  .stats-section {
+    padding: 6rem 2rem;
+    background: var(--charcoal);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .stats-section::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 10% 90%, rgba(196, 117, 106, 0.1), transparent),
+      radial-gradient(ellipse 40% 40% at 90% 20%, rgba(139, 168, 142, 0.08), transparent);
+    pointer-events: none;
+  }
+  .stats-inner {
+    max-width: 1100px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .stats-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .stats-header .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--blush);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .stats-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+  .stats-header h2 em { font-style: italic; color: var(--blush); }
+  .stats-header p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.7;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+  .stat-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-4px);
+  }
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    color: var(--blush);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin-bottom: 0.8rem;
+  }
+  .stat-source {
+    font-size: 0.72rem;
+    opacity: 0.4;
+    font-style: italic;
+  }
+
+  /* ─── WHAT'S COMING / FEATURES ─── */
+  .features-section {
+    padding: 7rem 2rem;
+    background: var(--warm-white);
+  }
+  .features-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .features-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .features-header .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .features-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  .feature-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(200, 180, 170, 0.15);
+    transition: all 0.4s ease;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(44, 37, 34, 0.06); }
+  .feature-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; justify-content: center; align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  .feature-icon.rose { background: var(--blush-light); }
+  .feature-icon.sage { background: var(--sage-light); }
+  .feature-icon.gold { background: rgba(212, 168, 83, 0.15); }
+  .feature-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--charcoal-soft);
+  }
+
+  /* ─── WAITLIST / SIGNUP ─── */
+  .waitlist-section {
+    padding: 7rem 2rem;
+    background: var(--cream);
+    text-align: center;
+    position: relative;
+  }
+  .waitlist-section::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%, rgba(232, 196, 184, 0.15), transparent);
+    pointer-events: none;
+  }
+  .waitlist-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .waitlist-inner .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .waitlist-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .waitlist-inner h2 em { font-style: italic; color: var(--rose); }
+  .waitlist-inner > p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--charcoal-soft);
+    margin-bottom: 2.5rem;
+  }
+
+  /* Tally embed container */
+  .tally-embed {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(200, 180, 170, 0.15);
+    box-shadow: 0 8px 40px rgba(44, 37, 34, 0.04);
+  }
+
+  /* Inline form fallback */
+  .inline-form {
+    display: flex; gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .inline-form input {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border: 1.5px solid rgba(44, 37, 34, 0.12);
+    border-radius: 100px;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    width: 300px;
+    max-width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  .inline-form input:focus { border-color: var(--rose); }
+  .inline-form input::placeholder { color: rgba(44, 37, 34, 0.35); }
+  .form-note {
+    font-size: 0.8rem;
+    color: var(--charcoal-soft);
+    opacity: 0.5;
+    margin-top: 0.75rem;
+  }
+
+  /* ─── FOUNDER ─── */
+  .founder-section {
+    padding: 6rem 2rem;
+    background: var(--warm-white);
+  }
+  .founder-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .founder-inner .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .founder-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    line-height: 1.5;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .founder-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--charcoal);
+  }
+  .founder-title {
+    font-size: 0.85rem;
+    color: var(--charcoal-soft);
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 3rem 2rem;
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .footer-logo span { color: var(--blush); }
+  .footer-links {
+    display: flex; gap: 2rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 0.85rem;
+    color: var(--cream);
+    opacity: 0.5;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  .footer-links a:hover { opacity: 1; }
+  .footer-copy {
+    font-size: 0.75rem;
+    opacity: 0.3;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-logo { font-size: 1.25rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero-sub { font-size: 1.05rem; }
+    .stats-section, .features-section, .waitlist-section, .founder-section { padding: 4rem 1.5rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-card { padding: 1.8rem 1.2rem; }
+    .stat-number { font-size: 2.4rem; }
+    .inline-form { flex-direction: column; align-items: center; }
+    .inline-form input { width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="#" class="nav-logo">Mome<span>HQ</span></a>
+  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">Coming Soon — Join 500+ Parents</span>
+    <h1>The mental load,<br><em>finally shared.</em></h1>
+    <p class="hero-sub">MomeHQ is the first co-parenting app built for both of you — so you can stop keeping score and start raising your baby together.</p>
+    <div class="hero-cta-group">
+      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+      <a href="#video" class="btn-ghost">Watch the Story ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VIDEO ─── -->
+<section class="video-section" id="video">
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/PtyX69xWT6g?rel=0&modestbranding=1" 
+      allow="autoplay; encrypted-media; gyroscope" 
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- ─── THE PROBLEM — STATS ─── -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stats-header reveal">
+      <span class="section-label">The Problem</span>
+      <h2>Parenthood shouldn't feel like a <em>solo mission</em></h2>
+      <p>The "mental load" isn't a buzzword. It's the invisible, unrelenting work of remembering, planning, and managing everything — and it's crushing new parents.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-number">71%</div>
+        <div class="stat-label">of mothers say they carry most of the mental load of parenting</div>
+        <div class="stat-source">Bright Horizons Modern Family Index</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-number">2×</div>
+        <div class="stat-label">Mothers spend twice as much time on childcare as fathers on average</div>
+        <div class="stat-source">Pew Research Center, 2023</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-number">40%</div>
+        <div class="stat-label">of couples report increased conflict after baby's arrival</div>
+        <div class="stat-source">The Gottman Institute</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-number">1 in 5</div>
+        <div class="stat-label">new mothers experience postpartum mood disorders, often worsened by unsupported caregiving</div>
+        <div class="stat-source">American Psychological Association</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHAT'S COMING ─── -->
+<section class="features-section">
+  <div class="features-inner">
+    <div class="features-header reveal">
+      <span class="section-label">What We're Building</span>
+      <h2>Not another baby tracker.</h2>
+    </div>
+    <div class="features-list">
+      <div class="feature-card reveal">
+        <div class="feature-icon rose">⚖️</div>
+        <h3>Load Balance Bar</h3>
+        <p>See who's carrying the weight — feeds, diapers, appointments, night wakes — in real time. No guessing. No scorekeeping.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon sage">🗓️</div>
+        <h3>Baby Journey Timeline</h3>
+        <p>Week-by-week milestones, development insights, and personalized guidance powered by Ava, your AI parenting companion.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon gold">👤</div>
+        <h3>Mom & Baby Profiles</h3>
+        <p>Toggle between your baby's world and your own recovery, mental health check-ins, and personal milestones. Because you matter too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WAITLIST SIGNUP ─── -->
+<section class="waitlist-section" id="waitlist">
+  <div class="waitlist-inner">
+    <span class="section-label">Be First</span>
+    <h2>Join the waitlist.<br><em>Shape what we build.</em></h2>
+    <p>Early members get first access, the chance to influence features, and a founding parent discount. No spam — just launch updates.</p>
+    <div class="tally-embed">
+      <iframe data-tally-src="https://tally.so/embed/D45OGl?alignLeft=1&hideTitle=1&transparentBackground=1"
+        width="100%" height="300" frameborder="0" title="MomeHQ Waitlist"></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",
+      v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
+      if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);};</script>
+      <p class="form-note">Free forever for founding parents. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOUNDER ─── -->
+<section class="founder-section">
+  <div class="founder-inner reveal">
+    <span class="section-label">From Our Founder</span>
+    <p class="founder-quote">"I built MomeHQ because I was living the problem. Three months into motherhood, I realized the hardest part wasn't the sleepless nights — it was feeling like I was carrying it all alone, while my partner didn't even know what 'it all' was."</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">Mome<span>HQ</span></div>
+  <div class="footer-links">
+    <a href="mailto:momehqsupport@gmail.com">Contact</a>
+  </div>
+  <p class="footer-copy">© 2026 MomeHQ. Raising babies. Together.</p>
+</footer>
+
+<!-- ─── SCROLL REVEAL ─── -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
