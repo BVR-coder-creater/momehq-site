@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MomeHQ — The Mental Load, Finally Shared</title>
-<meta name="description" content="MomeHQ is the first co-parenting app built for both of you. Stop keeping score. Start sharing the load.">
+<meta name="description" content="MomeHQ is the co-parenting app built for both of you. Now live on iOS and Android.">
 <meta property="og:title" content="MomeHQ — The Mental Load, Finally Shared">
-<meta property="og:description" content="The first co-parenting app that makes the invisible visible. Join the waitlist.">
+<meta property="og:description" content="The co-parenting app that makes the invisible visible. Now live on iOS and Android.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://momehq.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ─── NAV ─── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 1.25rem 2rem;
@@ -76,7 +76,7 @@
   }
   .nav-cta:hover { background: var(--rose-deep); transform: translateY(-1px); }
 
-  /* ─── HERO ─── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column;
@@ -160,7 +160,7 @@
   }
   .btn-ghost:hover { border-color: var(--rose); color: var(--rose); }
 
-  /* ─── VIDEO SECTION ─── */
+  /* VIDEO */
   .video-section {
     padding: 2rem 2rem 6rem;
     display: flex; justify-content: center;
@@ -185,7 +185,7 @@
     border: none;
   }
 
-  /* ─── STATS / THE PROBLEM ─── */
+  /* STATS */
   .stats-section {
     padding: 6rem 2rem;
     background: var(--charcoal);
@@ -268,7 +268,7 @@
     font-style: italic;
   }
 
-  /* ─── WHAT'S COMING / FEATURES ─── */
+  /* FEATURES */
   .features-section {
     padding: 7rem 2rem;
     background: var(--warm-white);
@@ -328,85 +328,84 @@
     color: var(--charcoal-soft);
   }
 
-  /* ─── WAITLIST / SIGNUP ─── */
-  .waitlist-section {
+  /* DOWNLOAD (replaces waitlist) */
+  .download-section {
     padding: 7rem 2rem;
     background: var(--cream);
     text-align: center;
     position: relative;
   }
-  .waitlist-section::before {
+  .download-section::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     background:
       radial-gradient(ellipse 60% 50% at 50% 50%, rgba(232, 196, 184, 0.15), transparent);
     pointer-events: none;
   }
-  .waitlist-inner {
+  .download-inner {
     max-width: 600px;
     margin: 0 auto;
     position: relative; z-index: 1;
   }
-  .waitlist-inner .section-label {
+  .download-inner .section-label {
     font-size: 0.75rem; font-weight: 600;
     letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--rose);
     margin-bottom: 1.2rem;
     display: block;
   }
-  .waitlist-inner h2 {
+  .download-inner h2 {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 2.8rem);
     line-height: 1.2;
     margin-bottom: 1rem;
   }
-  .waitlist-inner h2 em { font-style: italic; color: var(--rose); }
-  .waitlist-inner > p {
+  .download-inner h2 em { font-style: italic; color: var(--rose); }
+  .download-inner > p {
     font-size: 1.05rem;
     line-height: 1.7;
     color: var(--charcoal-soft);
     margin-bottom: 2.5rem;
   }
-
-  /* Tally embed container */
-  .tally-embed {
-    background: var(--warm-white);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(200, 180, 170, 0.15);
-    box-shadow: 0 8px 40px rgba(44, 37, 34, 0.04);
-  }
-
-  /* Inline form fallback */
-  .inline-form {
-    display: flex; gap: 0.75rem;
-    justify-content: center;
+  .store-badges {
+    display: flex; gap: 1rem;
+    justify-content: center; align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
-  .inline-form input {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border: 1.5px solid rgba(44, 37, 34, 0.12);
+  .store-badge {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 0.9rem 1.6rem;
     border-radius: 100px;
-    background: var(--warm-white);
-    color: var(--charcoal);
-    width: 300px;
-    max-width: 100%;
-    outline: none;
-    transition: border-color 0.3s ease;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(44, 37, 34, 0.12);
   }
-  .inline-form input:focus { border-color: var(--rose); }
-  .inline-form input::placeholder { color: rgba(44, 37, 34, 0.35); }
-  .form-note {
+  .store-badge:hover { background: var(--rose-deep); transform: translateY(-2px); box-shadow: 0 6px 30px rgba(196, 117, 106, 0.3); }
+  .store-badge svg { width: 26px; height: 26px; flex-shrink: 0; }
+  .store-badge-text { text-align: left; line-height: 1.1; }
+  .store-badge-text .small {
+    font-size: 0.65rem;
+    opacity: 0.75;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .store-badge-text .large {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .download-note {
     font-size: 0.8rem;
     color: var(--charcoal-soft);
     opacity: 0.5;
     margin-top: 0.75rem;
   }
 
-  /* ─── FOUNDER ─── */
+  /* FOUNDER */
   .founder-section {
     padding: 6rem 2rem;
     background: var(--warm-white);
@@ -443,7 +442,7 @@
     margin-top: 0.25rem;
   }
 
-  /* ─── FOOTER ─── */
+  /* FOOTER */
   footer {
     padding: 3rem 2rem;
     background: var(--charcoal);
@@ -475,7 +474,7 @@
     opacity: 0.3;
   }
 
-  /* ─── ANIMATIONS ─── */
+  /* ANIMATIONS */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -490,18 +489,18 @@
     transform: translateY(0);
   }
 
-  /* ─── RESPONSIVE ─── */
+  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.25rem; }
     .nav-logo { font-size: 1.25rem; }
     .hero { padding: 7rem 1.5rem 3rem; }
     .hero-sub { font-size: 1.05rem; }
-    .stats-section, .features-section, .waitlist-section, .founder-section { padding: 4rem 1.5rem; }
+    .stats-section, .features-section, .download-section, .founder-section { padding: 4rem 1.5rem; }
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .stat-card { padding: 1.8rem 1.2rem; }
     .stat-number { font-size: 2.4rem; }
-    .inline-form { flex-direction: column; align-items: center; }
-    .inline-form input { width: 100%; }
+    .store-badges { flex-direction: column; }
+    .store-badge { width: 100%; max-width: 280px; justify-content: center; }
   }
   @media (max-width: 480px) {
     .stats-grid { grid-template-columns: 1fr; }
@@ -510,36 +509,35 @@
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Mome<span>HQ</span></a>
-  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  <a href="#download" class="nav-cta">Download</a>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <span class="hero-badge">Coming Soon — Join 500+ Parents</span>
+    <span class="hero-badge">🎉 Now Live on iOS &amp; Android</span>
     <h1>The mental load,<br><em>finally shared.</em></h1>
     <p class="hero-sub">MomeHQ is the first co-parenting app built for both of you — so you can stop keeping score and start raising your baby together.</p>
     <div class="hero-cta-group">
-      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+      <a href="#download" class="btn-primary">Download the App</a>
       <a href="#video" class="btn-ghost">Watch the Story ↓</a>
     </div>
   </div>
 </section>
 
-<!-- ─── VIDEO ─── -->
+<!-- VIDEO -->
 <section class="video-section" id="video">
   <div class="video-wrapper">
-  
       <iframe src="https://www.youtube.com/embed/PtyX69xWT6g?rel=0&modestbranding=1&showinfo=0&controls=1"
-      allow="autoplay; encrypted-media; gyroscope" 
+      allow="autoplay; encrypted-media; gyroscope"
       allowfullscreen></iframe>
   </div>
 </section>
 
-<!-- ─── THE PROBLEM — STATS ─── -->
+<!-- THE PROBLEM -->
 <section class="stats-section">
   <div class="stats-inner">
     <div class="stats-header reveal">
@@ -572,11 +570,11 @@
   </div>
 </section>
 
-<!-- ─── WHAT'S COMING ─── -->
+<!-- WHAT WE BUILT -->
 <section class="features-section">
   <div class="features-inner">
     <div class="features-header reveal">
-      <span class="section-label">What We're Building</span>
+      <span class="section-label">What We Built</span>
       <h2>Not another baby tracker.</h2>
     </div>
     <div class="features-list">
@@ -592,31 +590,40 @@
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon gold">👤</div>
-        <h3>Mom & Baby Profiles</h3>
+        <h3>Mom &amp; Baby Profiles</h3>
         <p>Toggle between your baby's world and your own recovery, mental health check-ins, and personal milestones. Because you matter too.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── WAITLIST SIGNUP ─── -->
-<section class="waitlist-section" id="waitlist">
-  <div class="waitlist-inner">
-    <span class="section-label">Be First</span>
-    <h2>Join the waitlist.<br><em>Shape what we build.</em></h2>
-    <p>Early members get first access, the chance to influence features, and a founding parent discount. No spam — just launch updates.</p>
-    <div class="tally-embed">
-      <iframe data-tally-src="https://tally.so/embed/D45OGl?alignLeft=1&hideTitle=1&transparentBackground=1"
-        width="100%" height="300" frameborder="0" title="MomeHQ Waitlist"></iframe>
-      <script>var d=document,w="https://tally.so/widgets/embed.js",
-      v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
-      if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);};</script>
-      <p class="form-note">Free forever for founding parents. Unsubscribe anytime.</p>
+<!-- DOWNLOAD -->
+<section class="download-section" id="download">
+  <div class="download-inner">
+    <span class="section-label">Available Now</span>
+    <h2>Download MomeHQ. <em>Free to start.</em></h2>
+    <p>Available on iOS and Android. Free to download, with optional Premium for unlimited Ava AI and full Village access.</p>
+    <div class="store-badges">
+      <a href="https://apps.apple.com/us/app/momehq-co-parenting-tracker/id6768810069" class="store-badge" aria-label="Download MomeHQ on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <div class="store-badge-text">
+          <div class="small">Download on the</div>
+          <div class="large">App Store</div>
+        </div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.momehq.app" class="store-badge" aria-label="Get MomeHQ on Google Play">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.119 12l2.579-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.634z"/></svg>
+        <div class="store-badge-text">
+          <div class="small">Get it on</div>
+          <div class="large">Google Play</div>
+        </div>
+      </a>
     </div>
+    <p class="download-note">No ads, ever · Built by a mom · Free with optional Premium</p>
   </div>
 </section>
 
-<!-- ─── FOUNDER ─── -->
+<!-- FOUNDER -->
 <section class="founder-section">
   <div class="founder-inner reveal">
     <span class="section-label">From Our Founder</span>
@@ -624,10 +631,12 @@
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Mome<span>HQ</span></div>
   <div class="footer-links">
+    <a href="https://apps.apple.com/us/app/momehq-co-parenting-tracker/id6768810069">iOS App</a>
+    <a href="https://play.google.com/store/apps/details?id=com.momehq.app">Android App</a>
     <a href="/privacy">Privacy Policy</a>
     <a href="/terms">Terms of Service</a>
     <a href="mailto:hello@momehq.com">Contact</a>
@@ -635,7 +644,7 @@
   <p class="footer-copy">&copy; 2026 MomeHQ LLC. Raising babies. Together.</p>
 </footer>
 
-<!-- ─── SCROLL REVEAL ─── -->
+<!-- SCROLL REVEAL -->
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
